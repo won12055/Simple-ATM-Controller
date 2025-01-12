@@ -1,7 +1,7 @@
 from enum import Enum
 
 class AccountType(Enum):
-    CHECKING = 'checking',
+    CHECKING = 'checking'
     SAVINGS = 'savings'
 
 class User:
@@ -10,14 +10,5 @@ class User:
         self.pin = pin
         self.accounts = accounts 
 
-    def verify_pin(self, pin: str) -> bool:
-        return self.pin == pin
-    
-    def get_accounts(self) -> dict:
-        return self.accounts
-    
-    def update_balance(self, account_type: str, new_balance: int):
-        if account_type in self.accounts:
-            self.accounts[account_type] = new_balance
-        else:
-            raise ValueError(f"Account type '{account_type}' does not exist for this user.")
+    def __repr__(self):
+            return f"User(card_number={self.card_number}, accounts={self.accounts})"
