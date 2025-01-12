@@ -11,4 +11,5 @@ class User:
         self.accounts = accounts 
 
     def __repr__(self):
-            return f"User(card_number={self.card_number}, accounts={self.accounts})"
+        accounts_repr = {account_type.name: balance for account_type, balance in self.accounts.items()}
+        return f"User(card_number={self.card_number}, accounts={accounts_repr})"
